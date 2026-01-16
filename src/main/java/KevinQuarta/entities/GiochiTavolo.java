@@ -6,7 +6,11 @@ public class GiochiTavolo extends Giochi{
 
     public GiochiTavolo(int id,String titolo,int annoPubblicazione,double prezzo,int numGiocatori, int durataPartita) {
         super(id,titolo,annoPubblicazione,prezzo);
-        this.numGiocatori =numGiocatori;
+        if (numGiocatori >= 2 && numGiocatori <= 10) {
+            this.numGiocatori = numGiocatori;
+        } else {
+            System.out.println("Numero di giocatori inserito non valido");
+        }
         this.durataPartita = durataPartita;
     }
 
@@ -29,7 +33,11 @@ public class GiochiTavolo extends Giochi{
     @Override
     public String toString() {
         return "GiochiTavolo{" +
-                "numGiocatori=" + numGiocatori +
+                "id= " + getId() +
+                ", titolo= " + getTitolo() +
+                ", annoPubblicazione= " + getAnnoPubblicazione() +
+                ", prezzo= " + getPrezzo() +
+                ", numGiocatori=" + numGiocatori +
                 ", durataPartita=" + durataPartita +
                 '}';
     }

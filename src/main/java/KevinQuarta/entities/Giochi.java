@@ -5,13 +5,17 @@ public abstract class Giochi {
     private String titolo;
     private int annoPubblicazione;
     private double prezzo;
-
     public Giochi(int id, String titolo, int annoPubblicazione, double prezzo)
         {
         this.id = id;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
-        this.prezzo = prezzo;
+        if (prezzo > 0) {
+            this.prezzo = prezzo;
+        } else {
+            System.out.println("Il prezzo inserito non è valido,prezzo impostato a 1");
+            this.prezzo = 1;
+         }
         }
 
     public int getId() {
